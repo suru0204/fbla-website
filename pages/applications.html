@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Applications</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="btn-back">⬅ Go Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+    <div class="applications-container">
+        <h1>📄 Received Applications</h1>
+
+        <table id="applicationsTable">
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Location</th>
+                    <th>Resume</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Suhrat Islam</td>
+                    <td>pakhi@gmail.com</td>
+                    <td>Target</td>
+                    <td>Buffalo, NY</td>
+                    <td><a href="#" class="view-resume">📄 View Resume</a></td>
+                    <td class="status approved">✔ Approved</td>
+                    <td><button class="btn-remove">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Dhrubo</td>
+                    <td>debjdebjb@gmail.com</td>
+                    <td>Target</td>
+                    <td>Buffalo, NY</td>
+                    <td><a href="#" class="view-resume">📄 View Resume</a></td>
+                    <td class="status rejected">✖ Rejected</td>
+                    <td><button class="btn-remove">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Bhaa</td>
+                    <td>sadaf16@gmail.com</td>
+                    <td>Target</td>
+                    <td>Target</td>
+                    <td><a href="#" class="view-resume">📄 View Resume</a></td>
+                    <td class="status rejected">✖ Rejected</td>
+                    <td><button class="btn-remove">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Suhrat Islam</td>
+                    <td>pqwhir@gmail.com</td>
+                    <td>Target</td>
+                    <td>Buffalo, NY</td>
+                    <td><a href="#" class="view-resume">📄 View Resume</a></td>
+                    <td>
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-reject">Reject</button>
+                    </td>
+                    <td><button class="btn-remove">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/applications.js"></script>
+</body>
+</html>
+
+

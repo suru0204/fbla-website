@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Williamsville East Job Portal</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- JavaScript to Handle Home Link Redirection -->
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let homeLink = document.getElementById("homeLink");
+    let user = localStorage.getItem("loggedInUser");
+
+    // ✅ Adjust file paths dynamically based on whether inside /pages/
+    let isInsidePagesFolder = window.location.pathname.includes("/pages/");
+    let basePath = isInsidePagesFolder ? "../" : "";
+
+    try {
+        user = user ? JSON.parse(user) : null; // Parse user safely
+
+        if (user && user.role) {
+            if (user.role === "student") {
+                homeLink.href = basePath + "pages/student-home.html"; 
+            } else if (user.role === "employer") {
+                homeLink.href = basePath + "pages/employer-home.html"; 
+            } else {
+                homeLink.href = basePath + "index.html"; // Default case
+            }
+        } else {
+            homeLink.href = basePath + "index.html"; // Not logged in
+        }
+    } catch (error) {
+        console.error("⚠️ Error parsing user data:", error);
+        homeLink.href = basePath + "index.html"; // Fallback
+    }
+});
+
+
+    </script>
+
+    <!-- Main Content -->
+    <main class="about-container">
+
+        <!-- Who We Are -->
+        <section class="about-box">
+            <h2>Who We Are</h2>
+            <p>At Williamsville East Job Portal, our goal is simple: to connect students with career opportunities and employers with top talent. We provide an easy-to-use platform that enables students to gain real-world experience and employers to build their workforce with skilled, motivated individuals.</p>
+            <img src="../assets/whoweare.jpg" alt="Teamwork">
+        </section>
+
+        <!-- For Students -->
+        <section class="about-box">
+            <h2>For Students</h2>
+            <p>Finding a job can be overwhelming, but we’re here to make it simple and accessible. Our platform allows you to:</p>
+            <ul>
+                <li>✔ Browse job listings that match your skills and interests.</li>
+                <li>✔ Apply with ease using our streamlined application process.</li>
+                <li>✔ Track your applications and receive status updates.</li>
+                <li>✔ Gain valuable experience to build your career.</li>
+            </ul>
+            <img src="../assets/for-students.jpg" alt="Students Working">
+        </section>
+
+        <!-- For Employers -->
+        <section class="about-box">
+            <h2>For Employers</h2>
+            <p>Hiring the right talent is essential for business growth. At Williamsville East Job Portal, we make the recruitment process efficient and hassle-free by allowing you to:</p>
+            <ul>
+                <li>✔ Post job listings quickly and reach a pool of qualified student candidates.</li>
+                <li>✔ Review applications and resumes seamlessly.</li>
+                <li>✔ Manage and update listings as needed.</li>
+                <li>✔ Hire promising talent to strengthen your team.</li>
+            </ul>
+            <img src="../assets/employers.jpg" alt="Employers Hiring">
+        </section>
+
+        <!-- Our Resources -->
+        <section class="about-box">
+            <h2>Our Resources</h2>
+            <p>To ensure success for both students and employers, we provide valuable resources such as:</p>
+            <ul>
+                <li>📚 Career Development Tips – Resume building, interview preparation, and networking strategies.</li>
+                <li>🎯 Job Search Guidance – Helping students identify and apply for the right roles.</li>
+                <li>🤝 Employer Support – Assisting businesses in finding top student talent.</li>
+                <li>💡 Internship Programs – Connecting students with real-world experiences that align with their career goals.</li>
+            </ul>
+            <img src="../assets/career-resources.jpg" alt="Career Resources">
+        </section>
+
+        <!-- Our Impact -->
+        <section class="about-box">
+            <h2>Our Impact</h2>
+            <p>Since our launch, Williamsville East Job Portal has:</p>
+            <ul>
+                <li>🌟 Helped hundreds of students find jobs and internships.</li>
+                <li>🏢 Connected employers with top student talent.</li>
+                <li>📈 Bridged the gap between education and employment.</li>
+                <li>🎓 Empowered students to start meaningful careers.</li>
+            </ul>
+            <img src="../assets/impact.jpg" alt="Impact">
+        </section>
+
+        <!-- Join Us -->
+        <section class="about-box">
+            <h2>Join Us Today!</h2>
+            <p>Take advantage of the opportunities available at Williamsville East Job Portal. Whether you're a student looking for experience or an employer seeking talent, our platform is here to make connections that matter.</p>
+            <p>📩 Have questions? <a href="contact.html">Contact us</a> anytime—we're here to help!</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Williamsville East Job Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

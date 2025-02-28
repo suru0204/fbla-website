@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications</title>
+    <link rel="stylesheet" href="../css/student.css">
+</head>
+<body>
+    <header>
+        <h1>My Applications</h1>
+        <nav>
+            <ul>
+                <li><a href="student-home.html">Home</a></li>
+                <li><a href="apply.html">Apply for a Job</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Submitted Applications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="studentApplications">
+                <!-- Applied jobs will be displayed here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="../js/apply.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

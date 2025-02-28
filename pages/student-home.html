@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <header>
+        <img src="assets/logo-fbla copy 2.png" id="logo" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="student-home.html">Home</a></li>
+                <li><a href="job-listings.html">Job Listings</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="my-job-status.html">My Job Status</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="parallax" id="bg1">
+        <div class="content">
+            <h1>Welcome to the Student Job Portal</h1>
+            <p>Find jobs and internships that match your skills.</p>
+            <a href="job-listings.html" class="btn">Explore Jobs</a>
+        </div>
+    </section>
+    <!-- Events Section -->
+    <section class="events">
+        <h2>📅 Upcoming Career Events</h2>
+        <p>Explore job fairs, resume workshops, and networking events.</p>
+
+        <!-- Calendar -->
+        <div id="calendar">
+            <div class="month">
+                <button onclick="prevMonth()">◀</button>
+                <h3 id="monthYear"></h3>
+                <button onclick="nextMonth()">▶</button>
+            </div>
+            <div class="days" id="daysContainer"></div>
+        </div>
+
+      <!-- Event Details Popup -->
+<div id="eventPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" id="closeEventPopup">&times;</span>
+        <h3 id="eventTitle"></h3>
+        <p id="eventDate"></p>
+        <p id="eventTime"></p>
+        <p id="eventLocation"></p>
+        <p id="eventDescription"></p>
+    </div>
+</div>
+    </footer>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/faq.js"></script> <!-- JavaScript for FAQ toggles -->
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let homeLink = document.getElementById("homeLink");
+            let user = localStorage.getItem("loggedInUser");
+    
+            if (user) {
+                try {
+                    user = JSON.parse(user); // ✅ Ensure it's valid JSON
+                    if (user.role === "student") {
+                        homeLink.href = "student-home.html"; 
+                    } else if (user.role === "employer") {
+                        homeLink.href = "employer-home.html"; 
+                    } else {
+                        homeLink.href = "index.html"; 
+                    }
+                } catch (error) {
+                    console.error("⚠️ Error parsing user data:", error);
+                    homeLink.href = "index.html"; // ✅ Default to index if parsing fails
+                }
+            } else {
+                console.log("🔹 No user logged in, redirecting Home to index.");
+                homeLink.href = "index.html"; // ✅ Ensure guests always go to index.html
+            }
+        });
+    </script>
+    
+    
+
+    <!-- Main Content -->
+    <main>
+        <section class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+
+            <!-- Student FAQs -->
+            <div class="faq-section">
+                <h3>For Students</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How do I apply for a job? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Go to the <strong>Job Listings</strong> page, find a job you're interested in, and click <strong>"Apply Now"</strong>. Fill in your details and upload your resume before submitting your application.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Can I apply to multiple jobs? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! You are allowed to apply to multiple jobs that match your skills and interests. However, make sure you only apply to jobs that you are genuinely interested in.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How will I know if I got the job? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Employers review applications and update your status. You can check your application status on the <strong>My Job Status</strong> page. You will see whether your application is <span class="approved">Approved</span>, <span class="rejected">Rejected</span>, or <span class="pending">In Progress</span>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What should I include in my resume? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Your resume should include:</p>
+                        <ul>
+                            <li>Your **full name and contact details**</li>
+                            <li>Your **education background**</li>
+                            <li>Any **relevant work experience** or internships</li>
+                            <li>Skills related to the job you're applying for</li>
+                            <li>Any **extracurricular activities** or certifications</li>
+                        </ul>
+                        <p>Keep it **clear, concise, and professional**.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employer FAQs -->
+            <div class="faq-section">
+                <h3>For Employers</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How do I post a job listing? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Go to the <strong>Post a Job</strong> page, fill in the job details (title, description, company name, etc.), and submit it for approval. Once approved by an admin, your job listing will be visible to students.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How do I review student applications? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Log into your employer account and navigate to the <strong>Received Applications</strong> page. There, you will see a list of students who applied for your job postings. You can **approve or reject** applications as needed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Can I remove a job listing after approval? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! If your job listing is filled or no longer available, you can remove it from the <strong>Manage Job Listings</strong> page.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How do I contact applicants? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Once you approve a student's application, you can use the **email provided in their application** to contact them and schedule an interview.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let userType = localStorage.getItem("userType"); // Get stored user type
+            let homeLink = document.getElementById("homeLink"); // Find the Home link
+        
+            if (homeLink) {
+                if (userType === "employer") {
+                    homeLink.href = "employer-home.html"; // Redirect to employer home
+                } else {
+                    homeLink.href = "student-home.html"; // Default to student home
+                }
+            }
+        });
+        </script>
+        
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Williamsville East Job Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

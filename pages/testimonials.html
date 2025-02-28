@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Success Stories - Williamsville East Job Portal</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="testimonials-container">
+        <h1>🌟 Student Success Stories</h1>
+        <p>See how Williamsville East Job Portal has helped students find jobs and internships.</p>
+
+        <!-- Testimonial Cards -->
+        <section class="testimonial-box">
+            <h3>Sarah T. <span class="location">📍 Buffalo, NY</span></h3>
+            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <blockquote>"This job portal completely changed my career! I applied for an internship, and within a week, I was hired by a leading company in my field. The process was smooth and efficient!"</blockquote>
+        </section>
+
+        <section class="testimonial-box">
+            <h3>John D. <span class="location">📍 Williamsville, NY</span></h3>
+            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <blockquote>"Finding part-time work as a student was so easy here! The job listings were clear, and I could filter based on my interests. Now, I have a flexible job that works with my schedule."</blockquote>
+        </section>
+
+        <section class="testimonial-box">
+            <h3>Emily R. <span class="location">📍 Amherst, NY</span></h3>
+            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <blockquote>"I never thought I would get hired so fast! Thanks to this platform, I connected with an employer who saw my potential. Highly recommended for students!"</blockquote>
+        </section>
+
+        <section class="testimonial-box">
+            <h3>Michael S. <span class="location">📍 Cheektowaga, NY</span></h3>
+            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <blockquote>"The resume tips and career guidance on this portal helped me stand out. I landed my dream internship, and I’m so grateful for the support!"</blockquote>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Williamsville East Job Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Handle Home Button Redirection -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let homeLink = document.getElementById("homeLink");
+            let user = localStorage.getItem("loggedInUser");
+            
+            try {
+                user = user ? JSON.parse(user) : null;
+                
+                if (user && user.role) {
+                    if (user.role === "student") {
+                        homeLink.href = "../pages/student-home.html"; 
+                    } else if (user.role === "employer") {
+                        homeLink.href = "../pages/employer-home.html"; 
+                    } else {
+                        homeLink.href = "../index.html"; 
+                    }
+                } else {
+                    homeLink.href = "../index.html"; 
+                }
+            } catch (error) {
+                console.error("Error parsing user data:", error);
+                homeLink.href = "../index.html"; 
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "../index.html"; 
+        }
+    </script>
+
+</body>
+</html>

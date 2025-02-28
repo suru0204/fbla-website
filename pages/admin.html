@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+    <h1>Admin Dashboard</h1>
+    <a href="admin-job-listings.html">View Approved Job Listings</a> <!-- Link to Job Listings Page -->
+
+    <section>
+        <h2>Pending Job Listings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="pendingJobs">
+                <!-- Pending job listings will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>All Student Applications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Resume</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="allApplications">
+                <!-- Applications will be inserted dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="../js/admin.js"></script> <!-- Handles pending jobs & applications -->
+    <script src="../js/auth.js"></script>
+
+</body>
+</html>

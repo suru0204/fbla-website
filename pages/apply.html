@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for a Job</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Apply for a Job</h1>
+        <nav>
+            <ul>
+                <li><a href="student-home.html">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="form-container">
+            <h2>Submit Your Application</h2>
+
+            <form id="applyForm">
+                <!-- Job Selection -->
+                <label for="jobSelect">Select Job:</label>
+                <select id="jobSelect" required>
+                    <option value="">-- Select a Job --</option>
+                    <!-- Jobs will be added dynamically -->
+                </select>
+
+                <!-- Resume Upload -->
+                <label for="resume"><strong>Attach Resume:</strong></label>
+                <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+
+                <!-- Applicant Details -->
+                <input type="text" id="studentName" placeholder="Your Name" required>
+                <input type="email" id="studentEmail" placeholder="Your Email" required>
+
+                <!-- Submit Button -->
+                <button type="submit">Apply</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/apply.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Williamsville East Job Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,863 @@
+/* ✅ Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* ✅ Background Gradient */
+body {
+    background: linear-gradient(to bottom, #f4f4f4, white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ✅ Header styles */
+header {
+    background-color: #8B0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ✅ Navigation menu */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #660000;
+    padding: 15px;
+}
+
+nav ul li {
+    margin: 10px 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* ✅ Main Content */
+main {
+    padding: 40px 20px;
+    text-align: center;
+    flex: 1;
+}
+
+/* ✅ Footer styles */
+footer {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+}
+
+/* ✅ Center Forms */
+.form-container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* ✅ Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* ✅ Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background: darkred;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: red;
+}
+
+/* ✅ Job Listings Styling */
+.job-card {
+    background: #fff;
+    padding: 20px;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 650px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+}
+
+.job-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.job-card .company {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.job-description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* ✅ Apply Button */
+.apply-btn {
+    background-color: #008000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.apply-btn:hover {
+    background-color: #006400;
+}
+
+/* ✅ Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 14px;
+    text-align: left;
+    font-size: 16px;
+}
+
+table th {
+    background-color: #a10000;
+    color: white;
+}
+
+/* ✅ Approve / Reject Buttons */
+.approve-btn, .reject-btn {
+    background-color: #a10000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.reject-btn {
+    background-color: #555;
+}
+
+.approve-btn:hover {
+    background-color: #800000;
+}
+
+.reject-btn:hover {
+    background-color: #333;
+}
+
+/* ✅ Remove Button */
+.remove-btn {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 14px;
+    width: 100px;
+}
+
+.remove-btn:hover {
+    background-color: #990000;
+}
+
+/* ✅ Status Colors */
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .job-card {
+        width: 95%;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+}
+/* ✅ FAQ Styling */
+.faq-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.faq-section {
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #fff;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background: #8B0000;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-question span {
+    font-weight: bold;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+/* ✅ FAQ Styling */
+.faq-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.faq-section {
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #fff;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background: #8B0000;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #660000;
+}
+
+.faq-question span {
+    font-weight: bold;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+/* ✅ Status Colors */
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+/* General Page Styles */
+body {
+    background: linear-gradient(to bottom, #f8f9fa, white);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #8B0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #660000;
+    padding: 15px;
+}
+
+nav ul li {
+    margin: 10px 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: #f4f4f4;
+}
+
+.hero img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* About Us Sections */
+.about-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.about-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+    min-width: 280px;
+    margin: 10px;
+}
+
+.about-box img {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Resources & Impact Sections */
+.resources, .impact {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resources img, .impact img {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+.login-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.login-message a {
+    color: blue;
+    text-decoration: underline;
+}
+.testimonials-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.testimonial-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+blockquote {
+    font-style: italic;
+    color: #555;
+}
+
+p {
+    font-weight: bold;
+    color: #333;
+}
+/* Contact Page Styling */
+.contact-container {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.contact-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-box img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.contact-box h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #B80000;
+}
+
+.contact-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Contact Form */
+.contact-form {
+    margin-top: 40px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: #B80000;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #B80000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background: #900000;
+}
+
+/* Footer */
+footer {
+    background-color: #B80000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: 40px;
+}
+/* Style for the Main Job Post Container */
+.job-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+/* Form Box */
+.job-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* Form Headings */
+.job-form h2 {
+    color: #880000;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.job-form input,
+.job-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Textarea Styling */
+.job-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #880000;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #a00000;
+}
+
+/* Back Button */
+.btn-back {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-back:hover {
+    background-color: #666;
+}
+/* Applications Page Styles */
+.applications-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #b80000;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Status Styles */
+.status {
+    font-weight: bold;
+}
+
+.status.approved {
+    color: green;
+}
+
+.status.rejected {
+    color: red;
+}
+
+/* Buttons */
+.btn-remove {
+    background: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background: darkred;
+}
+
+.btn-approve {
+    background: green;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-approve:hover {
+    background: darkgreen;
+}
+
+.btn-reject {
+    background: gray;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-reject:hover {
+    background: darkgray;
+}
+
+/* View Resume Link */
+.view-resume {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.view-resume:hover {
+    color: darkblue;
+}
+
+/* Back Button */
+.btn-back {
+    background: #b80000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+.btn-back:hover {
+    background: darkred;
+}
+/* Fix Spacing of Back Button */
+.btn-back {
+    display: inline-block;
+    background-color: #880000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px; /* Reduce space */
+    width: fit-content; /* Prevent button from stretching */
+}
+
+/* Hover Effect */
+.btn-back:hover {
+    background-color: #a00000;
+}
+/* Full-Width Container */
+.post-job-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+/* Form Styling - Make it Full Width */
+.job-form {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields - Full Width */
+.job-form input,
+.job-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #880000;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #a00000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post-job-container {
+        padding: 10px;
+    }
+}

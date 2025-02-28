@@ -1,0 +1,59 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #000;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #a10000;
+    color: white;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.approve-btn {
+    background-color: green;
+    color: white;
+}
+
+.reject-btn {
+    background-color: red;
+    color: white;
+}
+
+.remove-btn {
+    background-color: #444;
+    color: white;
+}

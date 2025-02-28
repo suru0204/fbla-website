@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - Williamsville East Job Portal</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Background gradient */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f8f9fa, #dee2e6);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        header {
+            background: #8B0000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Job Listings Section */
+        main {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #8B0000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #8B0000;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .apply-btn {
+            background: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .apply-btn:hover {
+            background: #218838;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #8B0000;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let homeLink = document.getElementById("homeLink");
+            let user = localStorage.getItem("loggedInUser");
+        
+            // ✅ Detect if inside the /pages/ folder
+            let isInsidePagesFolder = window.location.pathname.includes("/pages/");
+            let basePath = isInsidePagesFolder ? "../" : "";
+        
+            try {
+                user = user ? JSON.parse(user) : null; // Parse user safely
+        
+                if (user && user.role) {
+                    if (user.role === "student") {
+                        homeLink.href = basePath + "pages/student-home.html"; 
+                    } else if (user.role === "employer") {
+                        homeLink.href = basePath + "pages/employer-home.html"; 
+                    } else {
+                        homeLink.href = basePath + "index.html"; // Default
+                    }
+                } else {
+                    homeLink.href = basePath + "index.html"; // Not logged in
+                }
+            } catch (error) {
+                console.error("⚠️ Error parsing user data:", error);
+                homeLink.href = basePath + "index.html"; // Fallback
+            }
+        });
+        </script>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Available Job Listings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="jobList">
+                <!-- Jobs will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="../js/job-listings.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Williamsville East Job Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

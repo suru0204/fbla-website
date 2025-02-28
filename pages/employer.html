@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Employer Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="post-job.html">Post a Job</a></li>
+                <li><a href="applications.html">View Applications</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section>
+        <h2>Your Job Listings</h2>
+        <table id="employerJobsTable">
+            <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Actions</th>
+            </tr>
+            <!-- Employer's jobs will be loaded here -->
+        </table>
+    </section>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/post-job.js"></script>
+</body>
+</html>

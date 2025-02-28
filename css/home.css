@@ -1,0 +1,287 @@
+/* Reset Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+    background: darkred;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+#logo {
+    height: 50px; /* Adjust logo size */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background: lightgray;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Parallax Background */
+.parallax {
+    background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"); 
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+
+/* Content Box in Parallax */
+.parallax .content {
+    background: rgba(0, 0, 0, 0.3); /* Lighter opacity */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Button Style */
+.btn {
+    background-color: white;
+    color: darkred;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: lightgray;
+}
+
+/* Footer Styles */
+footer {
+    background: darkred !important;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.remove-btn:hover {
+    background-color: darkred;
+}
+.job-status-container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.job-status-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.job-status-table th, .job-status-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.job-status-table th {
+    background-color: #b30000;
+    color: white;
+    font-size: 20px;
+}
+
+.job-status-table td {
+    background-color: #f9f9f9;
+}
+
+.job-status-table .approved {
+    color: green;
+    font-weight: bold;
+}
+
+.job-status-table .rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.job-status-table .pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.remove-btn:hover {
+    background-color: darkred;
+}
+/* Events Section */
+.events {
+    text-align: center;
+    padding: 40px;
+    background: #f4f4f4;
+}
+
+.events h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #880000;
+}
+
+/* Calendar */
+#calendar {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Month Navigation */
+.month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: #880000;
+}
+
+/* Days Grid */
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.day {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.day:hover {
+    background: #ffcccc;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+
+.popup-content {
+    padding: 10px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+}
