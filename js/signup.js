@@ -9,38 +9,26 @@ document.addEventListener("DOMContentLoaded", function () {
             let email = document.getElementById("email").value.trim();
             let password = document.getElementById("password").value.trim();
             let confirmPassword = document.getElementById("confirmPassword").value.trim();
-            let role = document.getElementById("role").value; // Student, Employer, Admin
+            let role = document.getElementById("role").value; // Student/Employer
 
-            // ✅ Check if all fields are filled
-            if (!name || !email || !password || !confirmPassword || !role) {
-                alert("❌ All fields are required!");
-                return;
-            }
-
-            // ✅ Validate email format
-            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-            if (!email.match(emailPattern)) {
-                alert("❌ Invalid email format!");
-                return;
-            }
-
-            // ✅ Check if passwords match
+            // ✅ Ensure passwords match
             if (password !== confirmPassword) {
                 alert("❌ Passwords do not match!");
                 return;
             }
 
-            // ✅ Retrieve stored users (fixing the null issue)
-            let users = JSON.parse(localStorage.getItem("users")) || [];
+            // ✅ Fetch existing users safely
+            let users = JSON.parse(localStorage.getItem("users")) || []; 
 
-            // ✅ Ensure `users` is always an array
+            // ✅ Ensure `users` is an array before modifying
             if (!Array.isArray(users)) {
+                console.warn("⚠️ `users` was not an array, resetting storage...");
                 users = [];
             }
 
             // ✅ Check if email already exists
             if (users.some(user => user.email === email)) {
-                alert("❌ Email is already registered!");
+                alert("❌ Email already registered!");
                 return;
             }
 
@@ -49,8 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
             users.push(newUser);
             localStorage.setItem("users", JSON.stringify(users));
 
-            alert("✅ Sign-up successful! Redirecting to login...");
-            window.location.href = "login.html"; // Redirect to login
+            alert("✅ Sign-up successful! You can now log in.");
+            window.location.href = "login.html"; // Redirect to login page
         });
+    } else {
+        console.error("⚠️ signupForm not found! Make sure your form has the correct ID.");
     }
 });
