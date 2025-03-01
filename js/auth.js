@@ -22,7 +22,11 @@ function logout() {
     let basePath = window.location.pathname.includes("/pages/") ? "../index.html" : "index.html";
     window.location.href = basePath; 
 }
-
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    alert("Logged out successfully!");
+    window.location.href = "../index.html"; // Redirects to the home page
+}
 document.addEventListener("DOMContentLoaded", function () {
     let user = JSON.parse(localStorage.getItem("loggedInUser"));
 
