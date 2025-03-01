@@ -10,16 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let users = JSON.parse(localStorage.getItem("users")) || []; // Get stored users
 
-            // ✅ Check for admin login (hardcoded credentials)
-            if (email === "admin@jobportal.com" && password === "Admin123") {
-                let adminUser = { email, role: "admin" };
-                localStorage.setItem("loggedInUser", JSON.stringify(adminUser));
-                alert("✅ Admin login successful!");
-                window.location.href = "admin-home.html"; // Redirect to admin dashboard
-                return;
-            }
-
-            // 🔍 Check if user exists in localStorage
             let user = users.find(u => u.email === email && u.password === password);
 
             if (user) {
@@ -27,10 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Login successful!");
 
                 // Redirect based on role
+                let basePath = window.location.pathname.includes("/pages/") ? "../" : "./";
+
                 if (user.role === "student") {
-                    window.location.href = "student-home.html";
+                    window.location.href = basePath + "pages/student-home.html";
                 } else if (user.role === "employer") {
-                    window.location.href = "employer-home.html";
+                    window.location.href = basePath + "pages/employer-home.html";
+                } else if (user.role === "admin") {
+                    window.location.href = basePath + "pages/admin-home.html"; // ✅ Corrected path
                 }
             } else {
                 alert("❌ Invalid email or password!");
@@ -38,4 +32,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
