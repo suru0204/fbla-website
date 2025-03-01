@@ -5,11 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
         signupForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent page reload
 
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            let confirmPassword = document.getElementById("confirmPassword").value;
-            let role = document.getElementById("role").value; // Student, Employer, or Admin
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+            let role = document.getElementById("role").value; // Student, Employer, Admin
+
+            // ✅ Check if all fields are filled
+            if (!name || !email || !password || !confirmPassword || !role) {
+                alert("❌ All fields are required!");
+                return;
+            }
+
+            // ✅ Validate email format
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("❌ Invalid email format!");
+                return;
+            }
 
             // ✅ Check if passwords match
             if (password !== confirmPassword) {
@@ -17,11 +30,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // ✅ Retrieve stored users (fixing the null issue)
             let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // ✅ Ensure `users` is always an array
+            if (!Array.isArray(users)) {
+                users = [];
+            }
 
             // ✅ Check if email already exists
             if (users.some(user => user.email === email)) {
-                alert("❌ Email already registered!");
+                alert("❌ Email is already registered!");
                 return;
             }
 
@@ -30,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             users.push(newUser);
             localStorage.setItem("users", JSON.stringify(users));
 
-            alert("✅ Sign-up successful! You can now log in.");
+            alert("✅ Sign-up successful! Redirecting to login...");
             window.location.href = "login.html"; // Redirect to login
         });
     }
