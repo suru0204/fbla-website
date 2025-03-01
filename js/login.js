@@ -1,60 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("🔄 login.js is loaded!");
-
     let loginForm = document.getElementById("loginForm");
 
-    if (!loginForm) {
-        console.error("❌ loginForm NOT found in login.html!");
-        return;
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || []; // Get stored users
+
+            // ✅ Check for admin login (hardcoded credentials)
+            if (email === "admin@jobportal.com" && password === "Admin123") {
+                let adminUser = { email, role: "admin" };
+                localStorage.setItem("loggedInUser", JSON.stringify(adminUser));
+                alert("✅ Admin login successful!");
+                window.location.href = "admin-home.html"; // Redirect to admin dashboard
+                return;
+            }
+
+            // 🔍 Check if user exists in localStorage
+            let user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                localStorage.setItem("loggedInUser", JSON.stringify(user)); // ✅ Store logged-in user
+                alert("Login successful!");
+
+                // Redirect based on role
+                if (user.role === "student") {
+                    window.location.href = "student-home.html";
+                } else if (user.role === "employer") {
+                    window.location.href = "employer-home.html";
+                }
+            } else {
+                alert("❌ Invalid email or password!");
+            }
+        });
     }
-
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        console.log("✅ Login form submitted!");
-
-        let email = document.getElementById("email").value.trim();
-        let password = document.getElementById("password").value.trim();
-
-        console.log("📧 Email:", email, "🔑 Password:", password);
-
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        console.log("📂 Stored Users:", users);
-
-        let user = users.find(user => user.email === email && user.password === password);
-
-        if (!user) {
-            alert("❌ Invalid email or password!");
-            return;
-        }
-
-        console.log("✅ User found:", user);
-
-        // ✅ Store logged-in user info
-        localStorage.setItem("loggedInUser", JSON.stringify(user));
-        localStorage.setItem("userType", user.role); // 🔥 Store role for navigation (FAQ fix)
-
-        alert("✅ Login successful!");
-
-        // ✅ Redirect based on user role
-        if (user.role === "student") {
-            console.log("🔄 Redirecting to Student Home...");
-            window.location.href = "student-home.html"; 
-        } else if (user.role === "employer") {
-            console.log("🔄 Redirecting to Employer Home...");
-            window.location.href = "employer-home.html"; 
-        } else if (user.role === "admin") {
-            console.log("🔄 Redirecting to Admin Panel...");
-            window.location.href = "admin.html"; 
-        }
-    });
 });
-
-// ✅ Logout Function (clears session & redirects)
-function logout() {
-    console.log("🔄 Logging out...");
-    localStorage.removeItem("loggedInUser");
-    localStorage.removeItem("userType"); // 🔥 Remove stored role (FAQ fix)
-    alert("✅ Successfully logged out!");
-    window.location.href = "login.html"; // Redirect to login page
-}
 

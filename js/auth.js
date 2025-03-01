@@ -1,26 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
     let user = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log("User data:", user); // Debugging: Check user data in console
 
+    // Show/Hide elements based on login state
     if (user) {
-        document.getElementById("logoutButton").style.display = "block";
-        document.getElementById("loginNav").style.display = "none";
-        document.getElementById("signupNav").style.display = "none";
+        let logoutButton = document.getElementById("logoutButton");
+        let loginNav = document.getElementById("loginNav");
+        let signupNav = document.getElementById("signupNav");
+
+        if (logoutButton) logoutButton.style.display = "block";
+        if (loginNav) loginNav.style.display = "none";
+        if (signupNav) signupNav.style.display = "none";
     }
 });
 
 function logout() {
     localStorage.removeItem("loggedInUser");
     alert("Logged out successfully!");
-    window.location.href = "../index.html"; // Redirects to index.html
+
+    // Redirect based on hosting environment
+    let basePath = window.location.pathname.includes("/pages/") ? "../index.html" : "index.html";
+    window.location.href = basePath; 
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     let user = JSON.parse(localStorage.getItem("loggedInUser"));
 
+    // Hide employer dashboard link for students
     if (user && user.role === "student") {
         let employerDashboardLink = document.getElementById("employerDashboardLink");
         if (employerDashboardLink) {
-            employerDashboardLink.style.display = "none"; // Hides employer dashboard link for students
+            employerDashboardLink.style.display = "none";
         }
     }
 });

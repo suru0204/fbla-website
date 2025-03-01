@@ -1,41 +1,29 @@
-document.getElementById("signupForm").addEventListener("submit", function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    let signupForm = document.getElementById("signupForm");
 
-    let fullname = document.getElementById("fullname").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
-    let userRole = document.getElementById("userRole").value;
+    if (signupForm) {
+        signupForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page refresh
 
-    if (password !== confirmPassword) {
-        alert("❌ Passwords do not match!");
-        return;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let role = document.getElementById("role").value; // Assuming role dropdown exists
+
+            let users = JSON.parse(localStorage.getItem("users")) || []; // Get existing users
+
+            // Check if email is already registered
+            if (users.some(user => user.email === email)) {
+                alert("Email is already registered! Try logging in.");
+                return;
+            }
+
+            // Store new user
+            let newUser = { email, password, role };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Signup successful! You can now log in.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
     }
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    if (users.find(user => user.email === email)) {
-        alert("❌ Email already exists! Try logging in.");
-        return;
-    }
-
-    // ❌ Prevent users from signing up as an admin
-    if (userRole === "admin") {
-        alert("❌ You cannot sign up as an admin.");
-        return;
-    }
-
-    let newUser = {
-        fullname: fullname,
-        email: email,
-        password: password,
-        role: userRole
-    };
-
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("✅ Account created successfully! Redirecting to login...");
-    window.location.href = "login.html";
 });
-
