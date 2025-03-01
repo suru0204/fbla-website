@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else if (user.role === "employer") {
                     window.location.href = basePath + "pages/employer-home.html";
                 } else if (user.role === "admin") {
-                    window.location.href = basePath + "pages/admin-home.html"; // ✅ Corrected path
+                    window.location.href = basePath + "pages/admin.html"; // ✅ Corrected path
                 }
             } else {
                 alert("❌ Invalid email or password!");
